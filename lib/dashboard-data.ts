@@ -1,6 +1,9 @@
 import {
   Activity,
+  BadgeCheck,
   BookOpenCheck,
+  Building2,
+  CalendarClock,
   ClipboardCheck,
   FileBarChart,
   FileClock,
@@ -11,6 +14,8 @@ import {
   Settings,
   ShieldCheck,
   Stethoscope,
+  TrendingDown,
+  TrendingUp,
   UsersRound
 } from "lucide-react";
 
@@ -29,28 +34,36 @@ export const kpis = [
   {
     label: "Launch Readiness",
     value: "86%",
-    change: "+9% this month",
+    change: "+9% MoM",
+    detail: "24 of 28 milestones complete",
+    trend: "up",
     tone: "info",
     icon: MonitorUp
   },
   {
     label: "Compliance Status",
     value: "On Track",
-    change: "2 logs due this week",
+    change: "2 due",
+    detail: "Logs due this week",
+    trend: "steady",
     tone: "success",
     icon: ShieldCheck
   },
   {
     label: "Training Completion",
     value: "74%",
-    change: "12 staff complete",
+    change: "12 complete",
+    detail: "4 staff pending renewal",
+    trend: "up",
     tone: "info",
     icon: UsersRound
   },
   {
     label: "Open Alerts",
     value: "4",
-    change: "1 high priority",
+    change: "1 high",
+    detail: "Clinical operations queue",
+    trend: "down",
     tone: "warning",
     icon: Activity
   }
@@ -62,49 +75,108 @@ export const modules = [
     description: "Track OBS launch milestones, site readiness, equipment, and go-live tasks.",
     href: "https://portal.eyesuites.com",
     icon: MonitorUp,
-    metric: "21 of 28 tasks complete"
+    metric: "21 of 28 tasks complete",
+    status: "In Progress",
+    tone: "info"
   },
   {
     title: "Compliance Logs",
     description: "Review sterilization checks, controlled logs, quality records, and attestations.",
     href: "https://logs.eyesuites.com",
     icon: ClipboardCheck,
-    metric: "98% current"
+    metric: "98% current",
+    status: "Current",
+    tone: "success"
   },
   {
     title: "Staff Training",
     description: "Monitor required clinical modules, role-based competencies, and renewals.",
     href: "https://training.eyesuites.com",
     icon: BookOpenCheck,
-    metric: "6 modules in progress"
+    metric: "6 modules in progress",
+    status: "Action Needed",
+    tone: "warning"
   },
   {
     title: "Op Notes",
     description: "Access procedure notes and ophthalmic documentation workflows.",
     href: "https://opnotes.eyesuites.com",
     icon: FileClock,
-    metric: "14 notes pending review"
+    metric: "14 notes pending review",
+    status: "Review Queue",
+    tone: "info"
   }
 ] as const;
+
+export const workspace = {
+  client: "Premier Ophthalmology Center",
+  workspace: "OBS launch workspace",
+  location: "North Scottsdale Surgical Suite",
+  tier: "Premium",
+  launchDate: "Jun 17, 2026",
+  owner: "Dr. Maya Patel",
+  readiness: "86%",
+  status: "Active",
+  icon: Building2
+} as const;
+
+export const executiveReadiness = {
+  title: "ACHC / OBS Readiness Score",
+  score: "91",
+  label: "Executive-ready",
+  detail: "Strong survey posture across policies, training, logs, and emergency systems.",
+  icon: BadgeCheck,
+  factors: [
+    { label: "Critical standards", value: "96%" },
+    { label: "Evidence binder", value: "88%" },
+    { label: "Mock survey", value: "Jun 03" }
+  ]
+} as const;
+
+export const goLiveCountdown = {
+  title: "Go-Live Countdown",
+  days: "24",
+  label: "days remaining",
+  date: "Jun 17, 2026",
+  detail: "Final walkthrough and leadership attestation due before launch lock.",
+  icon: CalendarClock
+} as const;
+
+export const surveyReadiness = [
+  { label: "Policies", value: "94%", detail: "2 pending sign-offs", tone: "success", icon: FileText },
+  { label: "Staff Training", value: "74%", detail: "4 renewals open", tone: "warning", icon: BookOpenCheck },
+  { label: "Logs", value: "98%", detail: "Current through May", tone: "success", icon: ClipboardCheck },
+  { label: "Emergency Preparedness", value: "87%", detail: "Cart attestation due", tone: "warning", icon: ShieldCheck },
+  { label: "Sterile Processing", value: "91%", detail: "Cycle records complete", tone: "success", icon: Activity }
+] as const;
+
+export const trendIcons = {
+  up: TrendingUp,
+  down: TrendingDown,
+  steady: Activity
+} as const;
 
 export const alerts = [
   {
     title: "Emergency cart check due",
     detail: "North suite needs weekly attestation by 4 PM.",
     time: "22 min ago",
-    tone: "warning"
+    tone: "warning",
+    label: "Due today"
   },
   {
     title: "Laser safety module assigned",
     detail: "Three clinical staff added to May cohort.",
     time: "1 hr ago",
-    tone: "info"
+    tone: "info",
+    label: "Training"
   },
   {
     title: "Policy binder updated",
     detail: "Medication handling policy v3.2 is ready.",
     time: "Yesterday",
-    tone: "success"
+    tone: "success",
+    label: "Approved"
   }
 ] as const;
 
