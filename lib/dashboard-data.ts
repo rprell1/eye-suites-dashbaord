@@ -150,6 +150,83 @@ export const surveyReadiness = [
   { label: "Sterile Processing", value: "91%", detail: "Cycle records complete", tone: "success", icon: Activity }
 ] as const;
 
+export const readinessTimeline = [
+  {
+    phase: "Intake & Scope",
+    date: "May 06",
+    status: "Complete",
+    detail: "Client scope, suite profile, and leadership contacts confirmed.",
+    tone: "success"
+  },
+  {
+    phase: "Policy Binder",
+    date: "May 22",
+    status: "In Review",
+    detail: "Medication handling and emergency transfer policies need final sign-off.",
+    tone: "warning"
+  },
+  {
+    phase: "Mock Survey",
+    date: "Jun 03",
+    status: "Scheduled",
+    detail: "ACHC-style readiness review with evidence binder walkthrough.",
+    tone: "info"
+  },
+  {
+    phase: "Final Walkthrough",
+    date: "Jun 12",
+    status: "Upcoming",
+    detail: "Facilities, logs, staff competencies, and launch controls review.",
+    tone: "info"
+  },
+  {
+    phase: "Go-Live",
+    date: "Jun 17",
+    status: "Target",
+    detail: "OBS launch support and day-one compliance command center monitoring.",
+    tone: "success"
+  }
+] as const;
+
+export const complianceItems = [
+  {
+    item: "Emergency cart weekly attestation",
+    domain: "Emergency Preparedness",
+    owner: "Clinical Lead",
+    due: "Today",
+    priority: "High",
+    status: "Open",
+    tone: "warning"
+  },
+  {
+    item: "Medication handling policy v3.2 approval",
+    domain: "Policies",
+    owner: "Dr. Patel",
+    due: "May 28",
+    priority: "Medium",
+    status: "In Review",
+    tone: "info"
+  },
+  {
+    item: "Laser safety renewal cohort",
+    domain: "Staff Training",
+    owner: "Training Admin",
+    due: "Jun 01",
+    priority: "Medium",
+    status: "Assigned",
+    tone: "warning"
+  },
+  {
+    item: "Sterilizer biological indicator log audit",
+    domain: "Sterile Processing",
+    owner: "OBS Manager",
+    due: "Jun 04",
+    priority: "Low",
+    status: "On Track",
+    tone: "success"
+  }
+] as const;
+
 export const trendIcons = {
   up: TrendingUp,
   down: TrendingDown,

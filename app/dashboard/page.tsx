@@ -1,10 +1,12 @@
 import { AlertsPanel } from "@/components/dashboard/alerts-panel";
 import { ClientWorkspaceCard } from "@/components/dashboard/client-workspace-card";
+import { ComplianceItemsTable } from "@/components/dashboard/compliance-items-table";
 import { ExecutiveReadinessCard } from "@/components/dashboard/executive-readiness-card";
 import { GoLiveCountdownCard } from "@/components/dashboard/go-live-countdown-card";
 import { Header } from "@/components/dashboard/header";
 import { KpiCard } from "@/components/dashboard/kpi-card";
 import { ModuleCard } from "@/components/dashboard/module-card";
+import { ReadinessTimeline } from "@/components/dashboard/readiness-timeline";
 import { Sidebar } from "@/components/dashboard/sidebar";
 import { SurveyReadinessSection } from "@/components/dashboard/survey-readiness-section";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -33,6 +35,8 @@ export default function DashboardPage() {
               </div>
 
               <SurveyReadinessSection />
+              <ReadinessTimeline />
+              <ComplianceItemsTable />
 
               <div>
                 <div className="mb-3 flex items-center justify-between">
